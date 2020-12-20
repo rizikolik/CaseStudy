@@ -163,25 +163,6 @@ describe('Post Endpoint Request differant scenarios', () => {
     });
   });
 
-  it('Should response 200 with a valid request', async () => {
-    const normalFormat = {
-      startDate: '2000-01-01',
-      endDate: '2020-12-12',
-      minCount: 1000,
-      maxCount: 1200,
-    };
-    const {res, body} = await req.post(post_url).send(normalFormat);
-
-    expect(body.code).toEqual(0);
-    expect(body.msg).toEqual('Success');
-    expect(Array.isArray(body.records)).toBe(true);
-    body.records.forEach(record => {
-      expect(record.key).toBeDefined();
-      expect(record.createdAt).toBeDefined();
-      expect(record.totalCount).toBeDefined();
-    });
-  });
-
   it('Should response 200 and total count of every record must be between minCount and maxCount', async () => {
     const normalFormat = {
       startDate: '2000-01-01',

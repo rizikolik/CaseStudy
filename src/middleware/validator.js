@@ -1,4 +1,3 @@
-//const validate = require('validator');
 const {clientError} = require('../utils/responseMessages');
 //Date Validator Checks Format firstly then check its a real date or not.
 function isValidDate(date) {

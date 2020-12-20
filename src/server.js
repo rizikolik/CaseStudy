@@ -20,7 +20,7 @@ app.use(bodyParser.urlencoded({extended: false}));
 app.use(cookieParser());
 
 app.use(cors());
-app.use(morgan('combined', {stream: logger.stream}));
+app.use(morgan('combined', {stream: logger.stream})); //Combine morgan's console logs with winston logs
 
 app.use('/api', RecordModule.router);
 
