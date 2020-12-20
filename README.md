@@ -7,6 +7,7 @@
 </p>
 
 <br>
+
 This repo contains the case study of **Getir**
 
 ## Used Stack :
@@ -103,6 +104,6 @@ Create a new Pull Request
 ### Improvement Ideas
 
 Test cases could be improved and error message names could be better. <br>
-A documentation page could be good.
+A documentation page that explians data flow could be good.
 
 </details>
