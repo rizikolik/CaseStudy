@@ -15,10 +15,25 @@ describe('getting the api end point ', () => {
 });
 
 describe('Post Endpoint Request with wrong Date Format', () => {
-  it('Should response  with a status code 400 with wrong date format message when year is not 4 digit ', async () => {
+  it('Should response  with a status code 400 when start date is not valid ', async () => {
     const wrongYearIncludedReq = {
       startDate: '20162-01-26', //Wrong year format
       endDate: '2018-02-02',
+      minCount: 20,
+      maxCount: 21,
+    };
+    const {body, res} = await req.post(post_url).send(wrongYearIncludedReq);
+
+    expect(res.statusCode).toEqual(400);
+    expect(body.code).toEqual(1);
+    expect(body.message).toEqual('Error');
+    expect(body.error).toEqual('VALIDATION FAILED');
+    expect(body.detail).toEqual('Date Format is wrong.Format is : YYYY-MM-DD');
+  });
+  it('Should response  with a status code 400 when  end date is not valid ', async () => {
+    const wrongYearIncludedReq = {
+      startDate: '2016-01-26', //Wrong year format
+      endDate: '201822-0222-02',
       minCount: 20,
       maxCount: 21,
     };
@@ -95,14 +110,14 @@ describe('Post Endpoint Request with wrong Date Format', () => {
     expect(body.detail).toEqual('Please fill all the areas of form');
   });
 
-  it('Should response  with a status code 400 when count numbers are not valid', async () => {
-    const NumberErrorReq = {
-      startDate: '2016-12-12',
+  it('Should response  with a status code 400 when minCount is not valid', async () => {
+    const BadFormatteCount = {
+      startDate: '2016-12-23',
       endDate: '2018-02-02',
-      minCount: '21',
+      minCount: '20',
       maxCount: 21,
     };
-    const {body, res} = await req.post(post_url).send(NumberErrorReq);
+    const {body, res} = await req.post(post_url).send(BadFormatteCount);
 
     expect(res.statusCode).toEqual(400);
     expect(body.code).toEqual(1);
@@ -111,19 +126,19 @@ describe('Post Endpoint Request with wrong Date Format', () => {
     expect(body.detail).toEqual('minCount must be integer');
   });
 
-  it('Should response with 200 code when minCount and maxCount is same ', async () => {
-    const NormalFormat = {
-      startDate: '2016-12-12',
-      endDate: '2020-06-23',
-      maxCount: 21,
-      minCount: 21,
+  it('Should response  with a status code 400 when maxCount is not valid', async () => {
+    const BadFormatteCount = {
+      startDate: '2016-12-23',
+      endDate: '2018-02-02',
+      minCount: 20,
+      maxCount: '21',
     };
+    const {body, res} = await req.post(post_url).send(BadFormatteCount);
 
-    const {body, res} = await req.post(post_url).send(NormalFormat);
-
-    expect(res.statusCode).toEqual(200);
-    //expect(body.code).toEqual(0);
-    // expect(body.msg).toEqual('Success');
-    // expect(body.records).toEqual([]);
+    expect(res.statusCode).toEqual(400);
+    expect(body.code).toEqual(1);
+    expect(body.message).toEqual('Error');
+    expect(body.error).toEqual('VALIDATION FAILED');
+    expect(body.detail).toEqual('maxCount must be integer');
   });
 });

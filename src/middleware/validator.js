@@ -27,7 +27,7 @@ const validator = (req, res, next) => {
     return clientError(res, 'minCount must be integer');
     //Another Validator could be implemented here
   } else if (typeof maxCount != 'number') {
-    return clientError(res, 'maxCount count must be integer');
+    return clientError(res, 'maxCount must be integer');
   }
   //If validation successfully completed go to the next middleware
   return next(req, res);
