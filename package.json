@@ -4,7 +4,7 @@
   "description": "",
   "main": "src/server.js",
   "scripts": {
-    "test": "test",
+    "test": "jest",
     "dev": "nodemon src/server.js",
     "start": "node src/server.js"
   },
@@ -23,6 +23,8 @@
     "winston": "^3.3.3"
   },
   "devDependencies": {
-    "eslint": "^7.16.0"
+    "eslint": "^7.16.0",
+    "jest": "^26.6.3",
+    "supertest": "^6.0.1"
   }
 }

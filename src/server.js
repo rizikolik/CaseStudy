@@ -45,7 +45,7 @@ dbConnect(`${dbURI}`)
   .then(
     app.listen(process.env.PORT || 8000, process.env.IP, function () {
       //console.log(process.env.PORT);
-      console.log(`SERVER IS RUNNİNG AT ${process.env.PORT || 3000}`);
+      console.log(`SERVER IS RUNNİNG AT ${process.env.PORT || 8000}`);
     })
   )
   .catch(err => {
