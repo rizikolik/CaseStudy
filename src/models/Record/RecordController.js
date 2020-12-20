@@ -6,7 +6,6 @@ const getRecords = async (req, res) => {
 
     return okayMessage(req, res, records);
   } catch (err) {
-    console.log(err);
     return serverError(req, res, err);
   }
 };

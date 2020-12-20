@@ -41,7 +41,6 @@ const notFound = (res, message) =>
     detail: message,
   });
 const serverError = (req, res, err) => {
-  console.log(err.status);
   logger.error(
     `${err.status || 500} - ${err.message} - ${req.originalUrl} - ${
       req.method

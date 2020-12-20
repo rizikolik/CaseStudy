@@ -2,7 +2,6 @@ const mongoose = require('mongoose');
 
 const fetchRecordsWithQueries = request => {
   const {startDate, endDate, minCount, maxCount} = request;
-  console.log(startDate);
   const RecordModel = mongoose.model('Record');
   //Use aggregate constructor for filtering and addding new Areas to model
   //Agregate uses an array named Pipeline
