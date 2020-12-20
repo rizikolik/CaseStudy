@@ -7,7 +7,7 @@ const ERROR_TYPES = {
 const RESPONSE = {
   success: {
     code: 0,
-    message: 'Success',
+    msg: 'Success',
   },
   error: {
     code: 1,
@@ -41,7 +41,7 @@ const notFound = (res, message) =>
     detail: message,
   });
 const serverError = (req, res, err) => {
-  console.log(error.status);
+  console.log(err.status);
   logger.error(
     `${err.status || 500} - ${err.message} - ${req.originalUrl} - ${
       req.method

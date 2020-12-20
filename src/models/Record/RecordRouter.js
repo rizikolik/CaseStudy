@@ -11,7 +11,7 @@ router
       Message: 'No view Template Created for this route',
     });
   })
-  //
+  //Request goes to middleware firstly
 
   .post((req, res) => {
     return validator(req, res, getRecords);

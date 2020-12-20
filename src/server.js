@@ -14,7 +14,7 @@ const RecordModule = require('./models/Record');
 
 const app = express();
 const dbURI =
-  app.settings.env === 'development'
+  app.settings.env === 'production'
     ? process.env.DEVELOPMENT_DB_URI
     : process.env.PRODUCTION_URI;
 

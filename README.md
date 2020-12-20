@@ -1,9 +1,5 @@
 <h2 align="center">Case Study</h2>
 
-<p align="center">
-  <img src="https://www.getir.com/images/bimutluluk.png" alt="getir_logo" width="300">
-  </p>
-
 Case study for **Getir**'s Interview Process.
 
 ### Used Stack :

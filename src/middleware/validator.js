@@ -20,11 +20,12 @@ const validator = (req, res, next) => {
 
   //Create Custom error messages with the help of precreated error helpers
   if (!startDate || !endDate || !minCount || !maxCount) {
-    return clientError(res, 'Validation Error');
+    return clientError(res, 'Please fill all the areas of form');
   } else if (!isValidDate(startDate) || !isValidDate(endDate)) {
-    return clientError(res, 'body cant be emtpy!');
+    return clientError(res, 'Date Format is wrong.Format is : YYYY-MM-DD');
   } else if (typeof minCount != 'number') {
     return clientError(res, 'minCount must be integer');
+    //Another Validator could be implemented here
   } else if (typeof maxCount != 'number') {
     return clientError(res, 'maxCount count must be integer');
   }
