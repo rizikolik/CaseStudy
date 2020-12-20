@@ -24,6 +24,12 @@ Case study for **Getir**'s Interview Process.
 
 2. Install the app with the help of `package.json`:
 
-   ```
-   $ npm install
-   ```
+```
+$ npm install
+```
+
+3. Start the server :
+
+```
+$ npm start
+```
