@@ -1,16 +1,13 @@
 const mongoose = require('mongoose');
 const {Schema} = mongoose;
 
-const recordSchema = new Schema({
-  key: {
-    type: String,
+const recordSchema = new Schema(
+  {
+    key: String,
+    createdAt: Date,
+    counts: [Number],
   },
-  createdAt: {
-    type: Date,
-  },
-  totalCount: {
-    type: Number,
-  },
-});
+  {timestamps: true}
+);
 
 mongoose.model('Record', recordSchema);
