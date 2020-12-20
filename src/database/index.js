@@ -8,7 +8,7 @@ const dbConnect = async url => {
     useUnifiedTopology: true,
     useCreateIndex: true,
   });
-
+  console.log(url);
   Mongoose.connection.on('error', err => {
     if (err) {
       // Sometimes writing the error line can be helpful
