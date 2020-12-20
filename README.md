@@ -1,14 +1,18 @@
 <h2 align="center">Case Study</h2>
 
-Case study for **Getir**'s Interview Process.
+<p align="center">
+ <img alt="GetirLogo" src="https://www.getir.com/images/bimutluluk.png" height="300"  />
+ </p>
 
-### Used Stack :
+## Used Stack :
 
 - #### Node.js
 - #### Express.js
 - #### Mongoose.js
 - #### heroku-cli - for deployment
+
 <details><summary><b>Installation Instructions</b></summary><br>
+
 <summary>You must have the Node.js installed before this steps.For more[Node.js](https://nodejs.org/en/download/) </summary><br/>
 
 1. Clone the Repo:
