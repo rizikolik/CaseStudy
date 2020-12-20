@@ -13,10 +13,7 @@ const RecordModule = require('./models/Record');
 //startup
 
 const app = express();
-const dbURI =
-  app.settings.env === 'development'
-    ? process.env.DEVELOPMENT_DB_URI
-    : process.env.PRODUCTION_URI;
+const dbURI = process.env.DB_URI;
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
