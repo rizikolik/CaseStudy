@@ -9,7 +9,7 @@ const morgan = require('morgan');
 
 //Modules that will be used by App //
 
-const RecordModule = require('./modules/Record');
+const RecordModule = require('./models/Record');
 //startup
 
 const app = express();
@@ -18,14 +18,14 @@ const dbURI =
     ? process.env.DEVELOPMENT_DB_URI
     : process.env.PRODUCTION_URI;
 
-app.use(bodyParser.json({}));
+app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(cookieParser());
 
 app.use(cors());
 app.use(morgan('combined', {stream: logger.stream}));
 
-//app.use('/api', RecordModule.router);
+app.use('/api', RecordModule.router);
 
 // error handler
 app.use(function (err, req, res, next) {
@@ -41,8 +41,7 @@ app.use(function (err, req, res, next) {
   );
 
   // render the error page
-  res.status(err.status || 500);
-  res.render('error');
+  res.status(err.status || 500).json({error: res.locals.message});
 });
 
 dbConnect(`${dbURI}`)

@@ -1,5 +1,5 @@
-const {body, validationResult} = require('express-validator');
-
+//const validate = require('validator');
+const {clientError} = require('../utils/responseMessages');
 //Date Validator Checks Format firstly then check its a real date or not.
 function isValidDate(date) {
   var regEx = /^\d{4}-\d{2}-\d{2}$/;
@@ -11,20 +11,25 @@ function isValidDate(date) {
 }
 const validator = (req, res, next) => {
   if (!req.body) {
-    return false;
-  }
-  const {startDate, endDate, minCount, maxCount} = req.body;
-  if (!startDate || !endDate || !minCount || !maxCount) {
-    return false;
+    return clientError(res, 'body cant be emtpy!');
   }
 
-  if (!isValidDate(startDate) || !isValidDate(endDate)) {
-    return false;
+  const {startDate, endDate, minCount, maxCount} = req.body;
+
+  //Check if any of the required areas is Empty or null
+
+  //Create Custom error messages with the help of precreated error helpers
+  if (!startDate || !endDate || !minCount || !maxCount) {
+    return clientError(res, 'Validation Error');
+  } else if (!isValidDate(startDate) || !isValidDate(endDate)) {
+    return clientError(res, 'body cant be emtpy!');
+  } else if (typeof minCount != 'number') {
+    return clientError(res, 'minCount must be integer');
+  } else if (typeof maxCount != 'number') {
+    return clientError(res, 'maxCount count must be integer');
   }
-  if (!check(minCount).isNumeric() || !check(maxCount).isNumeric()) {
-    return false;
-  }
-  return next();
+  //If validation successfully completed go to the next middleware
+  return next(req, res);
 };
 module.exports = {
   validator,
