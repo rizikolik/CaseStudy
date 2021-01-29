@@ -1,4 +1,4 @@
-<h2  align="center">Case Study</h2>
+<h2  align="center">Back End App With Node.js</h2>
 <p>
   <img alt="Version" src="https://img.shields.io/badge/version-1.0.0-blue.svg?cacheSeconds=2592000" />
  <img alt="Documentation" src="https://img.shields.io/badge/documentation-yes-brightgreen.svg" />
@@ -8,7 +8,7 @@
 
 <br>
 
-This repo contains the case study of **Getir**
+
 
 ## Used Stack :
 
